@@ -1,5 +1,5 @@
 # Copyright (c) 2025 Nicholas Bissell (TheFreeman193) MIT License: https://spdx.org/licenses/MIT.html
-# Get-NDK 1.0.6
+# Get-NDK 1.0.7
 
 using namespace System.IO
 using namespace System.Management.Automation
@@ -579,7 +579,7 @@ end {
 
     Downloads and extracts the latest stable NDK release to the ndk/ subdirectory relative to the script.
 .EXAMPLE
-    ./Get-NDK.ps1 -NdkDir $Home/Documents/ndk -Version 20 -ForcePlatform Win32 -KeepArchives
+    ./Get-NDK.ps1 -NdkDir $Home/Documents/ndk -Version 20 -ForcePlatform Win32 -KeepArchive
 
     Downloads and extracts NDK r20 for Windows x86 to the user's documents directory relative to the script, and keeping the downloaded archive
     in the temporary directory (%TEMP% or /tmp).
