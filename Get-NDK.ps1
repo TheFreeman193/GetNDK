@@ -1,5 +1,5 @@
 # Copyright (c) 2025 Nicholas Bissell (TheFreeman193) MIT License: https://spdx.org/licenses/MIT.html
-# Get-NDK 1.0.7
+# Get-NDK 1.0.8
 
 using namespace System.IO
 using namespace System.Management.Automation
@@ -91,18 +91,15 @@ begin {
             }
         } elseif ($IsLinux) {
             $HostArch = uname -m
-            $System = uname -s
-            if ($HostArch -in 'x86_64', 'amd64', 'ia64') { $BitSuffix = '64' } else { $BitSuffix = '32' }
-            if ($System -like 'Darwin*') {
-                $Supported = $HostArch -in 'x86_64', 'amd64', 'aarch64_be', 'aarch64', 'i386', 'i486', 'i586', 'i686', 'x32'
-                if ($HostArch -like 'aarch64*') { $ArmSuffix = 'A' } else { $ArmSuffix = '' }
-                $HostOS = "macOS$ArmSuffix$BitSuffix"
-            } elseif ($System -like 'Linux*') {
-                $Supported = $HostArch -in 'x86_64', 'amd64', 'i386', 'i486', 'i586', 'i686', 'x32'
-                $HostOS = "Linux$BitSuffix"
-            } else {
-                $Supported = $false
-            }
+            $Supported = $HostArch -in 'x86_64', 'amd64', 'i386', 'i486', 'i586', 'i686', 'x32'
+            if ($HostArch -in 'x86_64', 'amd64') { $BitSuffix = '64' } else { $BitSuffix = '32' }
+            $HostOS = "Linux$BitSuffix"
+        } elseif ($IsMacOS) {
+            $HostArch = uname -m
+            $Supported = $HostArch -in 'x86_64', 'amd64', 'aarch64_be', 'aarch64', 'i386', 'i486', 'i586', 'i686', 'x32'
+            if ($HostArch -in 'x86_64', 'amd64', 'aarch64_be', 'aarch64') { $BitSuffix = '64' } else { $BitSuffix = '32' }
+            if ($HostArch -like 'aarch64*') { $ArmSuffix = 'A' } else { $ArmSuffix = '' }
+            $HostOS = "macOS$ArmSuffix$BitSuffix"
         } else {
             $Supported = $false
         }
@@ -442,7 +439,7 @@ process {
                 $WasDownloaded = $true
                 Write-Host -fo Green '    OK.'
             } else {
-                $PSCmdlet.WriteVerbose("Already have '$DownloadTarget'.")
+                $PSCmdlet.WriteVerbose("Already have '$DownloadTarget'. The archive won't be deleted.")
             }
             if (-not $NoVerify) {
                 $ExpectedHash = $NDKSources[$Ver][$Plat][1]
