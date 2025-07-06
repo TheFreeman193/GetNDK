@@ -1,5 +1,5 @@
 # Copyright (c) 2025 Nicholas Bissell (TheFreeman193) MIT License: https://spdx.org/licenses/MIT.html
-# Get-NDK 1.0.8
+# Get-NDK 1.0.9
 
 using namespace System.IO
 using namespace System.Management.Automation
@@ -96,9 +96,9 @@ begin {
             $HostOS = "Linux$BitSuffix"
         } elseif ($IsMacOS) {
             $HostArch = uname -m
-            $Supported = $HostArch -in 'x86_64', 'amd64', 'aarch64_be', 'aarch64', 'i386', 'i486', 'i586', 'i686', 'x32'
-            if ($HostArch -in 'x86_64', 'amd64', 'aarch64_be', 'aarch64') { $BitSuffix = '64' } else { $BitSuffix = '32' }
-            if ($HostArch -like 'aarch64*') { $ArmSuffix = 'A' } else { $ArmSuffix = '' }
+            $Supported = $HostArch -in 'x86_64', 'amd64', 'arm64', 'aarch64_be', 'aarch64', 'i386', 'i486', 'i586', 'i686', 'x32'
+            if ($HostArch -in 'x86_64', 'amd64', 'arm64', 'aarch64_be', 'aarch64') { $BitSuffix = '64' } else { $BitSuffix = '32' }
+            if ($HostArch -like 'aarch64*' -or $HostArch -eq 'arm64') { $ArmSuffix = 'A' } else { $ArmSuffix = '' }
             $HostOS = "macOS$ArmSuffix$BitSuffix"
         } else {
             $Supported = $false
