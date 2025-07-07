@@ -1,3 +1,4 @@
+#!/usr/bin/env pwsh
 # Copyright (c) 2025 Nicholas Bissell (TheFreeman193) MIT License: https://spdx.org/licenses/MIT.html
 # Get-NDK 1.0.9
 
@@ -486,7 +487,7 @@ process {
                     # Requires 7z
                     $7z = Get-7Zip
                     if ([string]::IsNullOrWhiteSpace($7z)) { 7zError; return }
-                    & $7z x -aoa -o"$StageDir" $DownloadTarget
+                    & $7z x -aoa -snld -o"$StageDir" $DownloadTarget
                     if (-not $?) { continue PlatformLoop }
                     $Depth = 5
                 }
@@ -496,7 +497,7 @@ process {
                     if ([string]::IsNullOrWhiteSpace($7z)) {
                         Expand-Archive $DownloadTarget -DestinationPath $StageDir -Force
                     } else {
-                        & $7z x -aoa -o"$StageDir" $DownloadTarget
+                        & $7z x -aoa -snld -o"$StageDir" $DownloadTarget
                     }
                     if (-not $?) { continue PlatformLoop }
                     $Depth = 3
@@ -507,9 +508,9 @@ process {
                     if ([string]::IsNullOrWhiteSpace($7z)) { 7zError; return }
                     $TarArc = $DownloadUrl -replace '^.+/' -replace '\.(?:gz|xz|bz2)$'
                     $DelList.Add("$StageDir.1")
-                    & $7z x -aoa -o"$StageDir.1" $DownloadTarget
+                    & $7z x -aoa -snld -o"$StageDir.1" $DownloadTarget
                     if (-not $?) { continue PlatformLoop }
-                    & $7z x -aoa -o"$StageDir" (Join-Path "$StageDir.1" $TarArc)
+                    & $7z x -aoa -snld -o"$StageDir" (Join-Path "$StageDir.1" $TarArc)
                     if (-not $?) { continue PlatformLoop }
                     $Depth = 3
                 }
