@@ -160,22 +160,22 @@ begin {
     $A = 'https://dl.google.com/android/ndk/android-ndk-'
     $NDKSources = @{
         29 = @{
-            Win64    = "${B}r29-beta2-windows.zip", '59b665f7506f1079771393f2c90f3cb29817ecfb'
-            Linux64  = "${B}r29-beta2-linux.zip", '06c29d6764526fb51407d08fcead41247ddd3b70'
-            macOS64  = "${B}r29-beta2-darwin.dmg", '39c72b0aaaa4c5202d355483535e2b4f4375d10a'
-            macOSA64 = "${B}r29-beta2-darwin.dmg", '39c72b0aaaa4c5202d355483535e2b4f4375d10a'
+            Win64    = "${B}r29-windows.zip", 'ab3bb30fbb9e6903666d60c55d11e78b04e07472'
+            Linux64  = "${B}r29-linux.zip", '87e2bb7e9be5d6a1c6cdf5ec40dd4e0c6d07c30b'
+            macOS64  = "${B}r29-darwin.dmg", '0eecb29cfe791e039740e2a8bcf0af02b7132bd8'
+            macOSA64 = "${B}r29-darwin.dmg", '0eecb29cfe791e039740e2a8bcf0af02b7132bd8'
         }
         28 = @{
-            Win64    = "${B}r28b-windows.zip", 'c7d82072807fcabbd6ee356476761d8729307185'
-            Linux64  = "${B}r28b-linux.zip", 'f574d3165405bd59ffc5edaadac02689075a729f'
-            macOS64  = "${B}r28b-darwin.dmg", 'e6ea8af729119680b22ee524e5b0569a1ae11525'
-            macOSA64 = "${B}r28b-darwin.dmg", 'e6ea8af729119680b22ee524e5b0569a1ae11525'
+            Win64    = "${B}r28c-windows.zip", '086bba43ff2f5eb0e387b15c8278bb4e0d89ba1d'
+            Linux64  = "${B}r28c-linux.zip", 'a7b54a5de87fecd125a17d54f73c446199e72a64'
+            macOS64  = "${B}r28c-darwin.dmg", '60e8efb121aa7ce9857afbffa17b2da4c37b515a'
+            macOSA64 = "${B}r28c-darwin.dmg", '60e8efb121aa7ce9857afbffa17b2da4c37b515a'
         }
         27 = @{
-            Win64    = "${B}r27c-windows.zip", 'ac5f7762764b1f15341094e148ad4f847d050c38'
-            Linux64  = "${B}r27c-linux.zip", '090e8083a715fdb1a3e402d0763c388abb03fb4e'
-            macOS64  = "${B}r27c-darwin.dmg", '04d8c43eb4e884c4b16bbf7733ac9179a13b7b20'
-            macOSA64 = "${B}r27c-darwin.dmg", '04d8c43eb4e884c4b16bbf7733ac9179a13b7b20'
+            Win64    = "${B}r27d-windows.zip", '56607cbccd3642d4a1991f6bb3114a00f884f426'
+            Linux64  = "${B}r27d-linux.zip", '22105e410cf29afcf163760cc95522b9fb981121'
+            macOS64  = "${B}r27d-darwin.dmg", '80f11292080fab4e869799f1d23caa88dcf3c709'
+            macOSA64 = "${B}r27d-darwin.dmg", '80f11292080fab4e869799f1d23caa88dcf3c709'
         }
         # macOS releases are exclusively DMG-ZLIB-HFS from r26. Thank fudge for 7-zip.
         26 = @{
