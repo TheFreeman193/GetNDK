@@ -30,7 +30,7 @@ If you have 7-Zip installed, the script will preferentially use it for ZIP archi
 
 You can also find NDK compatibility data in [PSD1](./NDKData.psd1), [JSON](./NDKData.json), and [YAML](./NDKData.yml) formats in this repo.
 
-|  SDK | MinNDK | MaxNDK | &nbsp; |  NDK | MinSDK | MaxSDK |
+|  API | MinNDK | MaxNDK | &nbsp; |  NDK | MinAPI | MaxAPI |
 | ---: | :----: | :----: | ------ | ---: | :----: | :----: |
 |    3 |   1    |   11   | &nbsp; |    1 |   3    |   4    |
 |    4 |   1    |   11   | &nbsp; |    2 |   3    |   4    |

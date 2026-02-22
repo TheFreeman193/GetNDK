@@ -117,44 +117,6 @@ begin {
         }
     }
 
-    <# NDK/SDK compatibility matrices:
-    SDK MinNDK MaxNDK   |  NDK MinSDK MaxSDK
-    --- ------ ------   |  --- ------ ------
-      3      1     11   |    1      3      4
-      4      1     11   |    2      3      4
-      5      3     11   |    3      3      5
-      6      4     11   |    4      3      8
-      7      4     11   |    5      3      9
-      8      4     11   |    6      3      9
-      9      5     14   |    7      3     14
-     10      7     14   |    8      3     14
-     11      7     14   |    9      3     19
-     12      7     15   |   10      3     21
-     13      7     15   |   11      3     24
-     14      7     17   |   12      9     24
-     15      9     17   |   13      9     24
-     16      9     23   |   14      9     24
-     17      9     23   |   15     12     26
-     18      9     23   |   16     14     27
-     19      9     25   |   17     14     28
-     20     10     25   |   18     16     28
-     21     10     29   |   19     16     28
-     22     11     29   |   20     16     29
-     23     11     29   |   21     16     30
-     24     11     29   |   22     16     30
-     25     15     29   |   23     16     31
-     26     15     29   |   24     19     32
-     27     16     29   |   25     19     33
-     28     17     29   |   26     21     34
-     29     20     29   |   27     21     35
-     30     21     29   |   28     21     35
-     31     23     29   |   29     21     35
-     32     24     29   |
-     33     25     29   |
-     34     26     29   |
-     35     27     29   |
-    #>
-
     # NDK binary releases
     $B = 'https://dl.google.com/android/repository/android-ndk-'
     $A = 'https://dl.google.com/android/ndk/android-ndk-'
@@ -566,7 +528,7 @@ end {
 
     Windows 11 ARM64 and macOS on Apple Silicon both support AMD64 (x86-64) emulation and Google no longer provides any ARM64 builds for the NDK.
     The script therefore downloads the AMD64 editions for these platforms. Windows 10 ARM64 doesn't support AMD64 emulation, only x86. This script
-    targets x86 editions in this case; the last NDK supporting x86 was r20 for SDK 16–29 (Android 4.1–10).
+    targets x86 editions in this case; the last NDK supporting x86 was r20 for API 16–29 (Android 4.1–10).
 
     For NDKs r5 to r9 on macOS and Linux, and r23 or later on macOS, you need [7-Zip](https://7-zip.org/) installed in order to extract the archives.
     If you have 7-Zip installed, the script will preferentially use it for ZIP archives too as it's quicker than PowerShell's own archive cmdlets.
@@ -585,6 +547,6 @@ end {
     ./Get-NDK.ps1 -Version 11, 28 -AllPlatforms -NoExtract -TempPath $PWD
 
     Downloads the archives for all editions of NDKs r11 and r28 to the same directory as the script, without extracting them.
-    r11 and r28 support SDKs 3-24 and 21-35 respectively, effectively all versions of Android between them.
+    r11 and r28 support APIs 3-24 and 21-35 respectively, effectively all versions of Android between them.
     r11 has 32/64-bit Windows and 64-bit Linux/macOS editions, while r28 only supports building on 64-bit OSes.
 #>
